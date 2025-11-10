@@ -9,6 +9,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Import routes
+const carRoutes = require('./routes/carRoutes');
+// Mount routes
+app.use('/api/cars', carRoutes);
+
 // Test route
 app.get('/api/test', (req, res) => {
   res.json({ 
