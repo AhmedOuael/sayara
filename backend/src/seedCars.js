@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Car = require('./models/Car');
 require('dotenv').config();
 
-// Sample car data based on your Figma design
+// temp 10 cars 
 const sampleCars = [
   {
     make: 'Koenigsegg',
@@ -219,25 +219,25 @@ const sampleCars = [
 // Function to seed the database
 const seedDatabase = async () => {
   try {
-    // Connect to MongoDB
+    // connect to mongodb
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ Connected to MongoDB');
 
-    // Delete existing cars (clean slate)
+    // delete existing cars for clean slate
     await Car.deleteMany({});
     console.log('🗑️  Cleared existing cars');
 
-    // Insert sample cars
+    // innsert of  sample cars
     const cars = await Car.insertMany(sampleCars);
     console.log(`✅ Added ${cars.length} sample cars to database`);
 
-    // Display added cars
+    // displaying added cars
     console.log('\n📋 Sample cars added:');
     cars.forEach((car, index) => {
       console.log(`${index + 1}. ${car.make} ${car.model} - $${car.daily_rate}/day`);
     });
 
-    // Disconnect
+    // disconnect
     await mongoose.connection.close();
     console.log('\n✅ Database seeded successfully!');
     process.exit(0);
@@ -248,5 +248,5 @@ const seedDatabase = async () => {
   }
 };
 
-// Run the seed function
+// run the seedcars script
 seedDatabase();
