@@ -1,5 +1,10 @@
 import React from 'react'
 import {Heart, Fuel, UsersRound, Gauge} from 'lucide-react'
+import { createLucideIcon } from "lucide-react";
+import { gearbox } from "@lucide/lab";
+
+const Gearbox = createLucideIcon("Gearbox", gearbox);
+
 
 import { useState } from 'react';
 
@@ -32,14 +37,14 @@ const CarCard = ({car}) => {
       <div className='flex justify-between items-center text-gray-500'>
         <div className="flex items-center gap-1.5">
           <Fuel size={20} className="text-[#3563E9]" />
-          <span className="text-sm font-medium">{car.fuel_capacity_l}L</span>
+          <span className="text-sm font-medium">{car.fuel_type}</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <Gauge size={20} className="text-[#3563E9]" />
+          <Gearbox size={20} className="text-[#3563E9]" />
           <span className="text-sm font-medium capitalize">{car.transmission}</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <UsersRound size={20} className="fill-[#3563E9] text-[#3563E9]"/>
+          <UsersRound size={20} className="text-[#3563E9]"/>
           <span className="text-sm font-medium">{car.capacity} People</span>
         </div>
       </div>

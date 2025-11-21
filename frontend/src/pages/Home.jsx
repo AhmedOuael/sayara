@@ -2,6 +2,7 @@ import React from 'react'
 import CarCard from '../components/cars/CarCard.jsx'
 import { carAPI } from '../services/api.js'
 import Spinner from '../components/layout/Spinner.jsx'
+import Navbar from '../components/layout/Navbar.jsx'
 import { useState, useEffect } from 'react'
 
 const Home = () => {
@@ -41,6 +42,8 @@ useEffect(() => {
 
  return (
   <>
+  <Navbar/>
+  <div className='mt-10 pt-5'>
   {isLoading ? (
         // 1. loading state
         <Spinner />
@@ -68,6 +71,7 @@ useEffect(() => {
           </div>
         </>
       )}
+      </div>
     </>
   );
 };
