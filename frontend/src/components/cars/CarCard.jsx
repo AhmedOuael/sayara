@@ -31,7 +31,7 @@ const CarCard = ({car}) => {
         <img src={car.image_urls} alt={car.make} 
         className='w-full h-full object-contain'
         />
-        <div className='absolute bottom-0 w-full h-35 bg-linear-to-t from-white to-transparent'></div>
+        <div className='absolute bottom-0 w-full h-32 bg-linear-to-t from-white to-transparent'></div>
       </div>
 
       <div className='flex justify-between items-center text-gray-500'>
@@ -41,11 +41,11 @@ const CarCard = ({car}) => {
         </div>
         <div className="flex items-center gap-1.5">
           <Gearbox size={20} className="text-[#3563E9]" />
-          <span className="text-sm font-medium capitalize">{car.transmission}</span>
+          <span className="text-sm font-medium capitalize">{car.transmission_type}</span>
         </div>
         <div className="flex items-center gap-1.5">
           <UsersRound size={20} className="text-[#3563E9]"/>
-          <span className="text-sm font-medium">{car.capacity} People</span>
+          <span className="text-sm font-medium">{car.number_of_seats} People</span>
         </div>
       </div>
 

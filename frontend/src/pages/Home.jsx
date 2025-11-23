@@ -3,6 +3,7 @@ import CarCard from '../components/cars/CarCard.jsx'
 import { carAPI } from '../services/api.js'
 import Spinner from '../components/layout/Spinner.jsx'
 import Navbar from '../components/layout/Navbar.jsx'
+import Footer from '../components/layout/Footer.jsx'
 import { useState, useEffect } from 'react'
 
 const Home = () => {
@@ -72,6 +73,7 @@ useEffect(() => {
         </>
       )}
       </div>
+      <Footer/>
     </>
   );
 };
