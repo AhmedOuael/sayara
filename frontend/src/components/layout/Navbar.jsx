@@ -17,6 +17,7 @@ const Navbar = () => {
   return (
     //1 wrapper
     <div className='w-full bg-white shadow-sm px-6 py-4 flex items-center justify-between sticky top-0 z-50'>
+
       {/* left section logo */}
         <div className='flex items-center gap-3'>
           <h1 className='text-2xl font-bold text-[#3563E9]'>Sayara</h1>
@@ -58,7 +59,7 @@ const Navbar = () => {
         {/*dropdowm mobile*/}
          <div
         className={`absolute top-16 left-0 w-full bg-white shadow-lg p-6 md:hidden transform transition-all duration-300 ${
-          isOpen ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0 pointer-events-none"
+          isOpen ? " translate-y-0 opacity-100" : "-translate-y-5 opacity-0 pointer-events-none"
         }`}
         >
         {/*search mobile*/}
@@ -73,7 +74,8 @@ const Navbar = () => {
         </div>
 
         {/*mobile icons*/}
-        <div className='flex flex-col gap-4'>
+        <br />
+        <div className='flex flex-col gap-3'>
           <button className='flex items-center gap-3 border-transparent text-[#596780] py-4 px-4 rounded-full'>
              <Heart size={20} className='text-[#596780] fill-[#596780]'/> Favorites
           </button>

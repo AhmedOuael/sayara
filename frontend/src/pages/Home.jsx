@@ -4,7 +4,9 @@ import { carAPI } from '../services/api.js'
 import Spinner from '../components/layout/Spinner.jsx'
 import Navbar from '../components/layout/Navbar.jsx'
 import Footer from '../components/layout/Footer.jsx'
+import HeroSection from '../components/home/HeroSection.jsx'
 import { useState, useEffect } from 'react'
+import HeroSectionV2 from '../components/home/HeroSection.jsx'
 
 const Home = () => {
 //state to store the car list
@@ -44,18 +46,19 @@ useEffect(() => {
  return (
   <>
   <Navbar/>
-  <div className='mt-10 pt-5'>
+  <HeroSection/>
+  <div className='flex flex-col items-center pt-2'>
   {isLoading ? (
-        // 1. loading state
+        // 1- loading state
         <Spinner />
       ) : errorMsg ? (
-        // 2. error state
+        // 2- error state
         <p className='text-red-500'>{errorMsg}</p>
       ) : (
-        // 3. success state data loaded
+        // 3- success state data loaded
         // we use a another fragement<> to make a grid
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 mt-8 md:mt-10">
             {/* lopping through each car then create the CarCard */}
             {cars.map((car) => (
               <CarCard
