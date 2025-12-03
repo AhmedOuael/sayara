@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     
     <section className="relative w-full py-2 lg:py-4 bg-linear-to-br from-[#F6F7F9] via-[#EFF3FD] to-[#F6F7F9] flex items-center justify-center">  
-        {/* */}
+        
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto gap-6 px-8">
           
           {/* the slogan text */}
@@ -31,7 +31,7 @@ const HeroSection = () => {
           <div className="w-full max-w-2xl bg-white rounded-2xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
             
             <div className="space-y-2">
-              {/* Location Input */}
+              {/* location Input */}
               <div className="relative text-left">
                 <label className="text-xs font-semibold text-gray-500 ml-1 mb-1 block">Location</label>
                 <div className="relative">
@@ -55,7 +55,7 @@ const HeroSection = () => {
                     <input
                       type="date"
                       className="w-full pl-10 pr-3 py-3 bg-[#F6F7F9] border-2 border-transparent rounded-xl focus:border-[#3563E9] focus:bg-white focus:outline-none transition-all text-sm text-[#1A202C]"
-
+                      
                     />
                   </div>
                 </div>
@@ -71,15 +71,15 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Search Button */}
-              <button className="w-full bg-[#3563E9] hover:bg-[#264BC5] text-white py-4 rounded-xl font-semibold transition-all hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-4 ">
+              {/* search Button */}
+              <button className="w-full bg-[#3563E9] hover:bg-[#264BC5] text-white py-4 rounded-xl font-semibold transition-all hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-4 mt-6">
                 <Search className="w-5 h-5" />
                 Search Available Cars
               </button>
             </div>
           </div>
 
-          {/* Trust Indicators */}
+          {/* support 24/7 .verified. .+numbers of cars  */}
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 pt-4">
             <div className="flex items-center gap-3 text-[#1A202C]">
               <div className="w-12 h-12 bg-[#3563E9]/10 rounded-xl flex items-center justify-center">

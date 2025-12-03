@@ -43,6 +43,11 @@ useEffect(() => {
 }, [])
 
 
+  // spliting the cars to popular and recommended sections
+  const popularCars = cars.filter(car => car.luxury_status || car.rare_status).slice(0, 4);
+  const recommendedCars = cars.slice(0, 8);
+
+
  return (
   <>
   <Navbar/>
@@ -58,21 +63,64 @@ useEffect(() => {
         // 3- success state data loaded
         // we use a another fragement<> to make a grid
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 mt-8 md:mt-10">
-            {/* lopping through each car then create the CarCard */}
-            {cars.map((car) => (
-              <CarCard
-                key={car._id}  // unique key for react
-                car={car}      // passing the whole car obj to CarCard
-              />
+          {/* Popular Cars Section */}
+      <section className="container mx-auto px-6 py-8">
+        
+        {/* Section Header */}
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="text-base font-semibold text-[#90A3BF]">Popular Car</h2>
+          <button className="text-[#3563E9] text-base font-semibold hover:underline">
+            View All
+          </button>
+        </div>
+
+        {/* Popular Cars - Horizontal Scroll on Mobile, Grid on Desktop */}
+        <div className="relative">
+          {/* Mobile: Horizontal Scrollable */}
+          <div className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6">
+            {popularCars.map((car) => (
+              <div key={car._id} className="shrink-0 w-auto snap-center">
+                <CarCard car={car} />
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-8">
-            <p className="text-[#90A3BF]">
-              Showing {cars.length} cars
-            </p>
+          {/* Desktop: 4 Cards in a Row */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
+            {popularCars.map((car) => (
+              <CarCard key={car._id} car={car} />
+            ))}
           </div>
+        </div>
+
+      </section>
+
+      {/* Recommendation Cars Section */}
+      <section className="container mx-auto px-6 py-8">
+        
+        {/* Section Header */}
+        <div className="mb-5">
+          <h2 className="text-base font-semibold text-[#90A3BF]">Recommendation Car</h2>
+        </div>
+
+        {/* Recommendation Cars - 1 column mobile, 4 columns desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {recommendedCars.map((car) => (
+            <CarCard key={car._id} car={car} />
+          ))}
+        </div>
+
+        {/* Show More Button */}
+        <div className="flex flex-col items-center gap-4 mt-16">
+          <button className="bg-[#3563E9] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#264BC5] transition-colors min-w-[156px]">
+            Show more car
+          </button>
+          <p className="text-sm text-[#90A3BF]">
+            {cars.length} Car
+          </p>
+        </div>
+
+      </section>
         </>
       )}
       </div>

@@ -12,7 +12,7 @@ const CarCard = ({car}) => {
   const [isLiked, setisLiked] = useState(false);
   return (
     //container - header section + img sec + specs section + footer price+button
-    <div className='w-full max-w-xs bg-white rounded-[20px] p-6 flex flex-col'>
+    <div className='w-full max-w-xs mx-auto border border-gray-200 bg-white rounded-[20px] p-6 flex flex-col'>
      <div className='flex justify-between items-start mb-4'>
         <div>
           <h3 className='font-bold text-xl'>{car.make} {car.model}</h3>
