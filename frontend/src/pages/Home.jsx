@@ -1,12 +1,11 @@
 import React from 'react'
 import CarCard from '../components/cars/CarCard.jsx'
 import { carAPI } from '../services/api.js'
-import Spinner from '../components/layout/Spinner.jsx'
 import Navbar from '../components/layout/Navbar.jsx'
 import Footer from '../components/layout/Footer.jsx'
 import HeroSection from '../components/home/HeroSection.jsx'
 import { useState, useEffect } from 'react'
-import HeroSectionV2 from '../components/home/HeroSection.jsx'
+import SkeleronCard from '../components/cars/SkeleronCard.jsx'
 
 const Home = () => {
 //state to store the car list
@@ -53,12 +52,52 @@ useEffect(() => {
   <Navbar/>
   <HeroSection/>
   <div className='flex flex-col items-center pt-2'>
+    {/* loading state */}
   {isLoading ? (
-        // 1- loading state
-        <Spinner />
+        
+        <section className='container mx-auto px-6 py-8'>
+          {/* popular cars upper section - titre & view all*/}
+          <div className='flex justify-between items-center mb-5'>
+            <div className='h-6 w-32 bg-gray-200 rounded-md'></div>
+            <div className='h-6 w-20 bg-gray-200 rounded-md'></div>
+          </div>
+          {/*mobile view, the horizontal scroll*/}
+          <div className='md:hidden flex gap-4 overflow-hidden pb-4 -mx-6 px-6'>
+            {[...Array(2)].map((_, i) =>(
+              <div key={i} className='shrink-0 w-[85%] max-w-[300px]'>
+                <SkeleronCard/>
+              </div>
+            ))}
+          </div>
+          {/* desktop view the grid*/}
+          <div className='hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-8 justify-items-center mb-12'>
+            {[...Array(4)].map((_, i) =>(
+              <SkeleronCard key={i}/>
+            ))}
+          </div>
+
+          {/* recomnded cars the view all button -upper section */}
+          <div className=' flex justify-between items-center mb-5 mt-8'>
+            <div className='h-6 w-32 bg-gray-200 rounded-md animate-pulse'></div>
+            <div className='h-6 w-20 bg-gray-200 rounded-md animate-pulse'></div>
+          </div>
+
+          {/*recommended cars cards placeholders */}
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-8'>
+            {[...Array(8)].map((_, i) => (
+              <SkeleronCard key={i}/>
+            ))}
+          </div>
+        </section>
       ) : errorMsg ? (
         // 2- error state
-        <p className='text-red-500'>{errorMsg}</p>
+        <div className='py-20 text-center'>
+        <p className='text-red-500 font font-semibold'>Error:{errorMsg}</p>
+        <button onClick={() => window.location.reload()}
+                className='mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700'>
+          Try Again
+        </button>
+        </div>
       ) : (
         // 3- success state data loaded
         // we use a another fragement<> to make a grid
@@ -66,9 +105,9 @@ useEffect(() => {
           {/* Popular Cars Section */}
       <section className="container mx-auto px-6 py-8">
         
-        {/* Section Header */}
+        {/* Popular cars */}
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-base font-semibold text-[#90A3BF]">Popular Car</h2>
+          <h2 className="text-base font-semibold text-[#90A3BF]">Popular Cars</h2>
           <button className="text-[#3563E9] text-base font-semibold hover:underline">
             View All
           </button>
@@ -86,7 +125,7 @@ useEffect(() => {
           </div>
 
           {/* Desktop: 4 Cards in a Row */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8 justify-items-center">
             {popularCars.map((car) => (
               <CarCard key={car._id} car={car} />
             ))}
@@ -99,12 +138,15 @@ useEffect(() => {
       <section className="container mx-auto px-6 py-8">
         
         {/* Section Header */}
-        <div className="mb-5">
-          <h2 className="text-base font-semibold text-[#90A3BF]">Recommendation Car</h2>
+       <div className="flex items-center justify-between mb-5">
+          <h2 className="text-base font-semibold text-[#90A3BF]">Recommended Cars</h2>
+          <button className="text-[#3563E9] text-base font-semibold hover:underline">
+            View All
+          </button>
         </div>
 
         {/* Recommendation Cars - 1 column mobile, 4 columns desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
           {recommendedCars.map((car) => (
             <CarCard key={car._id} car={car} />
           ))}
@@ -112,11 +154,11 @@ useEffect(() => {
 
         {/* Show More Button */}
         <div className="flex flex-col items-center gap-4 mt-16">
-          <button className="bg-[#3563E9] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#264BC5] transition-colors min-w-[156px]">
-            Show more car
+          <button className="bg-[#3563E9] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#264BC5] transition-colors min-w-[156px] cursor-pointer">
+            Show all cars
           </button>
           <p className="text-sm text-[#90A3BF]">
-            {cars.length} Car
+            {cars.length} Cars available now
           </p>
         </div>
 

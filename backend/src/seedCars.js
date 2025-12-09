@@ -201,7 +201,35 @@ const sampleCars = [
     features: ['Android Auto', 'Keyless Entry', 'Climate Control', 'Multi-Function Steering'],
     luxury_status: false,
     rare_status: false
+  },
+
+  {
+    make: 'Mercedes-Benz',
+    model: 'G63 AMG',
+    year: 2023,
+    color: 'Matte Black',
+    license_plate: '5814 MJC',
+    daily_rate: 100.00,  
+    weekly_rate: 580.00, 
+    security_deposit: 1500.00, 
+    description: 'The excellence of luxury, within your reach. Available for rental — with or without a driver. Perfect for your prestigious events, weddings and special occasions.',
+    image_urls: ['/images/merc1.jpg',
+                 '/images/merc2.jpg',
+                 '/images/merc3.jpg',
+                 '/images/merc4.jpg',
+    ],
+    is_available: true,
+    location: 'Main Branch', 
+    mileage: 5000,
+    fuel_type: 'Gasoline',
+    fuel_capacity: '100L',
+    transmission_type: 'Automatic',
+    number_of_seats: 5,
+    features: ['Chauffeur Service', 'Red Leather Interior', 'Rear Entertainment', 'Sunroof', 'GPS'],
+    luxury_status: true,
+    rare_status: true
   }
+
 ];
 
 // Function to seed the database

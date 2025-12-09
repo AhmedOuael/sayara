@@ -1,5 +1,6 @@
 import React from 'react'
 import Sets from '../../assets/sets.svg'
+import { Link } from 'react-router';
 import { UserRound, 
   Search,
   SlidersHorizontal,
@@ -20,7 +21,9 @@ const Navbar = () => {
 
       {/* left section logo */}
         <div className='flex items-center gap-3'>
-          <h1 className='text-2xl font-bold text-[#3563E9]'>Sayara</h1>
+          <Link to={"/"}>
+            <h1 className='text-2xl font-bold text-[#3563E9]'>Sayara</h1>
+          </Link>
         </div>
 
         {/* pc searchbar */}
