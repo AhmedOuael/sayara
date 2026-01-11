@@ -67,7 +67,7 @@ const CarCard = ({car}) => {
           </p>
         </div>
         <Link
-        to={'/car/{car._id}'}
+        to={`/car/${car._id}`}
         className="bg-blue-600 text-white font-medium px-6 py-3 rounded-lg shadow-md cursor-pointer hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
           Rent Now
         </Link>

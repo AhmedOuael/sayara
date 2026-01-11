@@ -204,31 +204,48 @@ const sampleCars = [
   },
 
   {
-    make: 'Mercedes-Benz',
-    model: 'G63 AMG',
-    year: 2023,
-    color: 'Matte Black',
-    license_plate: '5814 MJC',
-    daily_rate: 100.00,  
-    weekly_rate: 580.00, 
-    security_deposit: 1500.00, 
-    description: 'The excellence of luxury, within your reach. Available for rental — with or without a driver. Perfect for your prestigious events, weddings and special occasions.',
-    image_urls: ['/images/merc1.jpg',
-                 '/images/merc2.jpg',
-                 '/images/merc3.jpg',
-                 '/images/merc4.jpg',
-    ],
-    is_available: true,
-    location: 'Main Branch', 
-    mileage: 5000,
-    fuel_type: 'Gasoline',
-    fuel_capacity: '100L',
-    transmission_type: 'Automatic',
-    number_of_seats: 5,
-    features: ['Chauffeur Service', 'Red Leather Interior', 'Rear Entertainment', 'Sunroof', 'GPS'],
-    luxury_status: true,
-    rare_status: true
-  }
+  make: 'Nissan',
+  model: 'Kicks SR',
+  year: 2024,
+  color: 'Deep Blue Pearl',
+  license_plate: '8492 KJN',
+  daily_rate: 45.00,  
+  weekly_rate: 280.00, 
+  security_deposit: 300.00, 
+  description: 'Fuel-efficient and reliable compact SUV perfect for city driving and road trips. Features modern tech and excellent safety ratings.',
+  image_urls: [
+    '/images/img.avif',
+    '/images/img2.avif',
+    '/images/img3.avif',
+    '/images/img4.avif',
+    '/images/img6.avif'
+  ],
+  is_available: true,
+  location: 'Main Branch', 
+  mileage: 12000,
+  fuel_type: 'Gasoline',
+  fuel_capacity: '10.8 Gallons (41L)',
+  transmission_type: 'Automatic',
+  number_of_seats: 5,
+  features: [
+    'Apple CarPlay & Android Auto', 
+    'Blind Spot Warning', 
+    'Rear Cross Traffic Alert',
+    'Automatic Emergency Braking',
+    'Lane Departure Warning',
+    '8-inch Touchscreen',
+    'Wi-Fi Hotspot',
+    'Heated Front Seats'
+  ],
+  luxury_status: true,
+  rare_status: true,
+  
+  engine: '1.6L 4-Cylinder',
+  horsepower: 122,
+  mpg_city: 31,
+  mpg_highway: 36,
+  drivetrain: 'Front-Wheel Drive'
+}
 
 ];
 

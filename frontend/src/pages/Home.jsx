@@ -100,7 +100,7 @@ useEffect(() => {
         </div>
       ) : (
         // 3- success state data loaded
-        // we use a another fragement<> to make a grid
+        // we use a another fragement<> to contain what appears and now make a grid
         <>
           {/* Popular Cars Section */}
       <section className="container mx-auto px-6 py-8">
@@ -113,9 +113,9 @@ useEffect(() => {
           </button>
         </div>
 
-        {/* Popular Cars - Horizontal Scroll on Mobile, Grid on Desktop */}
+        {/* popular cars - horizontal scroll on mobile & Grid on desktop */}
         <div className="relative">
-          {/* Mobile: Horizontal Scrollable */}
+          {/* mobile horizontal Scroll */}
           <div className="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6">
             {popularCars.map((car) => (
               <div key={car._id} className="shrink-0 w-auto snap-center">
@@ -124,7 +124,7 @@ useEffect(() => {
             ))}
           </div>
 
-          {/* Desktop: 4 Cards in a Row */}
+          {/* desktop: 4 Cards in a Row */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8 justify-items-center">
             {popularCars.map((car) => (
               <CarCard key={car._id} car={car} />
@@ -134,10 +134,10 @@ useEffect(() => {
 
       </section>
 
-      {/* Recommendation Cars Section */}
+      {/* recomended Cars Section */}
       <section className="container mx-auto px-6 py-8">
         
-        {/* Section Header */}
+        {/* top section header */}
        <div className="flex items-center justify-between mb-5">
           <h2 className="text-base font-semibold text-[#90A3BF]">Recommended Cars</h2>
           <button className="text-[#3563E9] text-base font-semibold hover:underline">
@@ -145,14 +145,14 @@ useEffect(() => {
           </button>
         </div>
 
-        {/* Recommendation Cars - 1 column mobile, 4 columns desktop */}
+        {/* recommended - 1 column mobile, 4 columns desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
           {recommendedCars.map((car) => (
             <CarCard key={car._id} car={car} />
           ))}
         </div>
 
-        {/* Show More Button */}
+        {/* show more btn */}
         <div className="flex flex-col items-center gap-4 mt-16">
           <button className="bg-[#3563E9] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#264BC5] transition-colors min-w-[156px] cursor-pointer">
             Show all cars

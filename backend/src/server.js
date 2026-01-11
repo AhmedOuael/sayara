@@ -5,16 +5,16 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
+// middleware
 app.use(cors());
 app.use(express.json());
 
-// Import routes
+// import routes
 const carRoutes = require('./routes/carRoutes');
 // Mount routes
 app.use('/api/cars', carRoutes);
 
-// Test route
+// test route
 app.get('/api/test', (req, res) => {
   res.json({ 
     message: 'Backend is working!',
@@ -22,7 +22,7 @@ app.get('/api/test', (req, res) => {
   });
 });
 
-// Database connection
+// database connection
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('✅ Connected to MongoDB');
@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGODB_URI)
     console.error('❌ MongoDB connection error:', err);
   });
 
-// Start server
+// start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
